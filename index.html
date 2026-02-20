@@ -36,6 +36,17 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 
 <script>
+	function showResults() {
+	var total = allergy_count + cold_count;
+	var allergyPercent = Math.round((allergy_count/total)*100);
+	var coldPercent = Math.round((cold_count/total)*100);
+
+	var resultText = document.getElementById("results");
+
+	resultText.innerHTML = 
+	"Allergy likelihood: " + allergyPercent + "%<br>" + 
+	"Cold likelihood: " + coldPercent + "%";
+	}
         var allergy_count = 0;
         var cold_count = 0;
 
@@ -97,7 +108,14 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p>Put Question 1 content here.</p>    
+        <p>Are your eyes watery or itchy?</p>    
+
+
+			<!---If YES = that supports allergies strand--> 
+			<a href = "#two" onclick="allergyAdd();" class="w3-btn w3-green w3-round">Yes</a>
+
+			<!--IF they say No,that supports the cold strand-->
+			<a href="#two" onclick="coldAdd();" class="w3-btn w3-red w3-round">No</a>
     	</div>
 </div>
 
@@ -107,10 +125,60 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
 	<div id="content" class="w3-container">
-		<p>Content of page 2 goes here.</p>
+		<p>Do you have a fever?</p>
+		<!--IF THEY SAY YES = THATS GONNA HELP THE COLD STRAND -->
+
+	<a href="#three" onclick="coldAdd();" class="w3-btn w3-green w3-round">yes</a>
+
+		<!--NO = SUPORTS ALLERGY STRAND -->
+		<a href="#three" onclick="allergyAdd();" class="w3-btn w3-red w3-round">No</a>
 	</div>
 </div>	
 
+	<div class="page" id="three">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 3</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Do you have a sore throat?</p>
+
+		<!-- YES = SUPPORTS THE cold strand -->
+		<a href="#four" onclick="coldAdd();" class="w3-btn w3-green w3-round">Yes</a>
+
+		<!-- NO = allergy -->
+		<a href="#four" onclick="allergyAdd();" class="w3-btn w3-red w3-round">No</a>
+	</div>
+</div>
+<div class="page" id="four">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 4</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Are your symptoms seasonal or chronic?</p>
+
+		<!-- YES = supportst the allergy stranddd-->
+		<a href="#resultsPage" onclick="allergyAdd();" class="w3-btn w3-green w3-round">Yes</a>
+
+		<!-- NO = cold -->
+		<a href="#resultsPage" onclick="coldAdd();" class="w3-btn w3-red w3-round">No</a>
+	</div>
+</div>
+
+
+
+	<div class="page" id="resultsPage">
+		<div class="w3-container w3-flat-carrot">
+			<h1>Your Results</h1>
+		</div>
+		<div id="content" class="w3-container">
+			<p id="results">Click below to see your results.</p>
+			<a href="#resultsPage" onclick="showResults();" class="w3-btn w3-blue w3-round">
+				Show My Results
+			</a>
+		</div>
+	</div>
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
 </footer>
