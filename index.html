@@ -7,8 +7,8 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
 Authors in chronological order of contribution:
 Tim Riedel
-Author 2
- 
+Meghna Ganesh
+	
 Further Information:
 http://cns.utexas.edu/fri
  
@@ -17,7 +17,7 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-To help people understand if they have the cold or have allergies based off of how they are feeling
+To help people understand if they have the cold or have allergies based off of certain symptoms
  
 Known Issues:
 might not be accurate since it is based off of only a couple questions
@@ -166,7 +166,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 </div>
 
-
+<!--this code uses the answers to create results with a click --> 
 
 	<div class="page" id="resultsPage">
 		<div class="w3-container w3-flat-carrot">
@@ -176,9 +176,12 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 			<p id="results">Click below to see your results.</p>
 			<a href="#resultsPage" onclick="showResults();" class="w3-btn w3-blue w3-round">
 				Show My Results
+<!--this is the button that will create the restart button-->
+				<button onclick="restarTest();" class="w3-button w3-white w3-round w3-hover-red"><b>Restart Test</b></button>
 			</a>
 		</div>
 	</div>
+<!-- this part adds the footer --> 
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
 </footer>
